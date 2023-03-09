@@ -1,0 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+
+/* For Firefox Browser */
+  .custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(199 210 254) transparent;
+  }
+  .custom-scrollbar-dark {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(79 70 229) transparent;
+  }
+  
+  /* For Chrome, EDGE, Opera, Others */
+  .custom-scrollbar::-webkit-scrollbar {
+    @apply w-1 ;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-indigo-200 w-[5px] rounded-lg;
+  }
+
+  .custom-scrollbar-dark::-webkit-scrollbar-thumb {
+    @apply bg-indigo-600;
+  }
+}
