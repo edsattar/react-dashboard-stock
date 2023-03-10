@@ -1,11 +1,9 @@
 import React, { useContext } from "react";
-// import StockContext from "../context/StockContext";
-// import ThemeContext from "../context/ThemeContext";
+import AppContext from "../context/AppContext";
 
 const SearchResults = ({ results }) => {
-  // const { darkMode } = useContext(ThemeContext);
 
-  // const { setStockSymbol } = useContext(StockContext);
+  const { setStockSymbol } = useContext(AppContext);
 
   return (
     <ul className="absolute top-12 border-2 w-full rounded-md h-64 overflow-y-scroll bg-white dark:bg-gray-900 border-neutral-200 custom-scrollbar dark:border-gray-800 dark:custom-scrollbar-dark">

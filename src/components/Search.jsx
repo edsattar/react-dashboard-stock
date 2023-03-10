@@ -1,30 +1,25 @@
 import React, { useContext, useState } from "react";
-import { mockSearchResults } from "../constants/mock";
-
-// import ThemeContext from "../context/ThemeContext";
-// import { searchSymbol } from "../utils/api/stock-api";
+import { searchSymbol } from "../utils/api/stock-api";
 import SearchResults from "./SearchResults";
 import { XCircleIcon as XIcon, MagnifyingGlassIcon as SearchIcon } from "@heroicons/react/24/solid";
 
 const Search = () => {
-  // const { darkMode } = useContext(ThemeContext);
-
   const [input, setInput] = useState("");
-
-  const [bestMatches, setBestMatches] = useState(mockSearchResults.result);
+  const [bestMatches, setBestMatches] = useState([]);
 
   const updateBestMatches = async () => {
-    setBestMatches(mockSearchResults.result);
-    //   try {
-    //     if (input) {
-    //       const searchResults = await searchSymbol(input);
-    //       const result = searchResults.result;
-    //       setBestMatches(result);
-    //     }
-    //   } catch (error) {
-    //     setBestMatches([]);
-    //     console.log(error);
-    //   }
+
+      try {
+        if (input) {
+          const searchResults = await searchSymbol(input);
+          const result = searchResults.result;
+          setBestMatches(result);
+        }
+      } catch (error) {
+
+        setBestMatches([]);
+        console.log(error);
+      }
   };
 
   const clear = () => {
@@ -45,7 +40,7 @@ const Search = () => {
       <input
         type="text"
         value={input}
-        className="dark:bg-gray-900 w-full px-4 py-2 focus:outline-none rounded-md "
+        className="dark:bg-gray-900 w-full px-4 py-2 focus:outline-none rounded-md"
         placeholder="Search stock..."
         onChange={(event) => setInput(event.target.value)}
         onKeyDown={handleEnter}

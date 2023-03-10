@@ -33,7 +33,7 @@ const ThemeIcon = () => {
   return (
     <button
       onClick={toggleDarkMode}
-      className="rounded-lg border-1 border-neutral-400 p-2 absolute right-8 xl:right-32 shadow-lg transition duration-300 hover:scale-125 dark:shadow-gray-800"
+      className="rounded-lg border-1 border-neutral-400 p-2 absolute right-8 xl:right-32 hover:shadow-xl transition duration-150 dark:shadow-gray-700"
     >
       <MoonIcon className="h-8 w-8 cursor-pointer stroke-1 dark:fill-yellow-400 dark:stroke-yellow-400 fill-none stroke-neutral-400" />
     </button>
