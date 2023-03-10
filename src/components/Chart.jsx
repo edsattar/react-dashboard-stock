@@ -9,8 +9,7 @@ import {
   AreaChart,
   Tooltip,
 } from "recharts";
-// import ThemeContext from "../context/ThemeContext";
-// import StockContext from "../context/StockContext";
+import AppContext from "../context/AppContext";
 import { fetchHistoricalData } from "../utils/api/stock-api";
 import {
   createDate,
@@ -23,9 +22,8 @@ import { mockHistoricalData } from "../constants/mock";
 
 const Chart = () => {
   
-  // const { darkMode } = useContext(ThemeContext);
+  const { darkMode, stockSymbol } = useContext(AppContext);
   
-  // const { stockSymbol } = useContext(StockContext);
   
   // const [data, setData] = useState([]);
   const [data, setData] = useState(mockHistoricalData);
@@ -94,14 +92,14 @@ const Chart = () => {
             <linearGradient id="chartColor" x1="0" y1="0" x2="0" y2="1">
               <stop
                 offset="5%"
-                // stopColor={darkMode ? "#312e81" : "rgb(199 210 254)"}
-                stopColor="rgb(199 210 254)"
+                stopColor={darkMode ? "#312e81" : "rgb(199 210 254)"}
+                // stopColor="rgb(199 210 254)"
                 stopOpacity={0.8}
               />
               <stop
                 offset="95%"
-                // stopColor={darkMode ? "#312e81" : "rgb(199 210 254)"}
-                stopColor="rgb(199 210 254)"
+                stopColor={darkMode ? "#312e81" : "rgb(199 210 254)"}
+                // stopColor="rgb(199 210 254)"
                 stopOpacity={0}
               />
             </linearGradient>
@@ -115,8 +113,8 @@ const Chart = () => {
             strokeWidth={0.5}
           />
           <Tooltip
-            // contentStyle={darkMode ? { backgroundColor: "#111827" } : null}
-            // itemStyle={darkMode ? { color: "#818cf8" } : null}
+            contentStyle={darkMode ? { backgroundColor: "#111827" } : null}
+            itemStyle={darkMode ? { color: "#818cf8" } : null}
           />
           <XAxis dataKey="date" />
           <YAxis domain={["dataMin", "dataMax"]} />
