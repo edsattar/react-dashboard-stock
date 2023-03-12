@@ -5,8 +5,10 @@ import { fetchStockDetails, fetchQuote } from "../utils/api/stock-api";
 import AppContext from "../context/AppContext";
 
 const Dashboard = () => {
+  // Get the stock symbol from the context
   const { stockSymbol } = useContext(AppContext);
 
+  // Set the state for the stock details and quote
   const [stockDetails, setStockDetails] = useState({});
   const [quote, setQuote] = useState({});
 
