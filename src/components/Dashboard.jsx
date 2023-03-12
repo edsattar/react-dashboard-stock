@@ -41,18 +41,18 @@ const Dashboard = () => {
   return (
     // The grid is responsive and will change based on the screen size
     <div className="bg-neutral-100 dark:bg-gray-900 dark:text-gray-300 h-screen grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 grid-rows-8 md:grid-rows-7 xl:grid-rows-5 auto-rows-fr gap-6 p-10 font-quicksand">
-      
-      // Header component
+
+      {/* // Header component */}
       <div className="col-span-1 md:col-span-2 xl:col-span-3 row-span-1 flex justify-start items-center">
         <Header name={stockDetails.name} />
       </div>
 
-      // Chart component
+      {/* // Chart component */}
       <div className="md:col-span-2 row-span-4">
         <Chart />
       </div>
 
-      // Overview component
+      {/* // Overview component */}
       <div>
         <Overview
           symbol={stockSymbol}
@@ -62,6 +62,8 @@ const Dashboard = () => {
           currency={stockDetails.currency}
         />
       </div>
+
+      {/* // Details component */}
       <div className="row-span-2 xl:row-span-3">
         <Details details={stockDetails} />
       </div>
